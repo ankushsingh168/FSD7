@@ -6,46 +6,134 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Registration Form: Dance Club</h3>
-    <hr>
+    <center><h1>Form formatting Assignment</h1></center>
+    <hr />
+    <div>
+      <fieldset>
+        <legend>Description</legend>
+        This assignment is designed to help you practice and understand the
+        basics of HTML (Hypertext Markup Language). HTML is the standard
+        language used to create and structure content on the web. In this
+        assignment, you will learn how to create a simple web page using HTML
+        elements such as headings, paragraphs, lists, links, images, and more.
+        You will also learn how to use attributes to enhance the functionality
+        of your web page. By completing this assignment, you will gain a solid
+        foundation in HTML and be able to create your own web pages in the
+        future.
+      </fieldset>
+    
+     <form action=""> <h2>Registration From : Dance Club</h2>
+   <hr>
+
+    <table border="1" cellspacing="2">
+        <tr>
+            <th><label for="Fullname"></label>Name</th>
+            <td ><input type="text" name="Fullname" id="Fullname"></td>
+        </tr>
+        <tr>
+            <th>IC No:</th>
+            <td></td>
+            <td></td>
+            <td></td>
+        
+        </tr>
+
+         <tr>
+          <th>Address:</th>
+          <td colspan="3"><textarea name="address" id="address"></textarea></td>
+        </tr>
+
+        <tr>
+            <th>Gender:</th>
+            <td colspan="3"><input type="radio" name="Gender" id="Male" value="Male">
+            <label for="Male">Male</label>
+
+            <input type="radio" name="Gender" id="Femail" value="Femail">
+            <label for="Female">Femail</label>
+           </td>
+        </tr>
+
+         <tr>
+          <th>Dance Type:</th>
+          <td colspan="3">
+            <input type="checkbox" name="data" value="Zapin" />Zapin
+            <input type="checkbox" name="data" value="Joget" />Joget
+            <input type="checkbox" name="data" value="Joget" />Inang
+            <input type="checkbox" name="data" value="Joget" />Lion Dance
+          </td>
+        </tr>
+        </tr>
+
+       <tr>
+          <th>Competition :</th>
+          <td colspan="3">
+            <select>
+              <option value="State level">State level</option>
+              <option value="National leve">National level</option>
+              <option value="StateInternational level">
+                StateInternational level
+              </option>
+            </select>
+          </td>
+        </tr>
+   
+
+     <tr>
+          <th>Nationality :</th>
+          <td colspan="3">
+            <select>
+              <option value="-please Select-">--Please Select--</option>
+              <option value="Engineer">Indian</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Password:</th>
+          <td colspan="2"></td>
+        </tr>
+
+    </table>
+     
+    <button type="register me">Register Me</button>
+        <button type="cancel">cancel</button>
+
+  </form>
+      <br>
+      <button><a href="./sub.html">Back</a></button>
+      <br>
+      <button><a href="../Htmlwebdesign/">Go to Home</a></button>
+      <hr>
+    <footer>
+      <p>
+        <img src="ankush.jpeg" alt="Ankush" align="right" width="140" height="150"> 
+        <br />
+        <b
+          >E-mail:-
+          <a href="ankushsinghbaghel881@gmail.com"
+            >ankushsinghbaghel881@gmail.com</a
+          ></b
+        ><br />
+        <b>Phone:- <a href="tel:+7049246810">+917049246810</a></b
+        ><br />
+        <b>Address:- </b>Satna Madhya Pradesh 485001 <br />
+        <td>
+          <a href="https://github.com/ankushsingh168" target="_blank"
+            >Github Profile URL</a
+          >
+          <br>
+        </td>
+        <td>
+          <a
+            href="https://www.linkedin.com/in/ankush-singh-baghel-abaa432a6"
+            target="_blank"
+            >Linkedin Profile URL</a
+          >
+        </td>
+      </p>
+    </footer>
     <br>
-    <form action="">
-        <div>
-            <fieldset>
-                <table border="1">
-                    <tr colspan="2">
-                        <th>Name:</th>
-                        <th></th>
-                    </tr>
-                    <br>
-                    <tr>
-                        <th>IC No:</th>
-                        <th>
-                        <th rowspan="1">-</th>
-                        <th>-</th>
-                        <th></th>
-                        </th>
-                    </tr>
-                    <br>
-                    <tr colspan="4" rowspan="4">
-                        <th>Address:</th>
-                        <th></th>
-                    </tr>
-                    <br>
-                    <tr>
-                        <th>Gender:</th>
-                        <th>
-                        <input type="radio">
-                        <label for="gender">Male</label>
-                        <input type="radio">
-                        <label for="gender">Female</label>
-                        </th>
-                        
-                    </tr>
-                </table>
-            </fieldset>
-        </div>
-    </form>
+    
     
 </body>
 </html>
