@@ -1,0 +1,83 @@
+#outerDiv{
+    border: 1px solid black;
+    width: 1300px;
+    height: 650px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 100px;
+    background-color: rgb(0, 4, 255) ;
+    
+
+
+}
+#innerDiv1{
+    width: 350px;
+    height: 350px;
+    border: 1px solid black;
+    align-items: center;
+     background-color: white ;
+     margin-top: 140px;
+     border-radius: 2%;
+     outline: none;
+     padding: 10px;
+     border: none;
+     border-bottom: 1px ;
+     margin-left: 200px;
+     
+
+    
+    
+
+}
+#innerDiv2{
+    width: 370px;
+    height: 500px;
+    border: 1px solid black;
+    align-items: center;
+    background-color: white;
+    margin-top: 10px ;
+    border-radius: 2%;
+    margin-right: 100px
+    
+     
+       
+    
+
+}
+button{
+    height: 50px;
+    width: 300px;
+    background-color:rgb(0, 85, 255);
+    text-align: center;
+    border-radius: 2%;
+    margin: auto auto ;
+    margin-left: 0px;
+
+}
+
+#innerDiv1 input{
+  border: none;
+  border-bottom: 1px solid black;
+  margin-left: 0px;
+  
+    
+    
+
+}
+
+#innerDiv2 input{
+  border: none;
+  border-bottom: 1px solid black;
+  
+  align-items:center ;
+  
+    
+    
+
+}
+
+
+
+
+
