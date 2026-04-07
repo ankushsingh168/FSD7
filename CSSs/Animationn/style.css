@@ -1,0 +1,28 @@
+#div1{
+    width: 50px;
+    border: 1px solid black;
+    height: 20px;
+    overflow: hidden;
+    text-wrap-mode: nowrap;
+    transition: width 2s linear ; color: 0.5s; 
+    color: blueviolet;
+
+}
+
+#div1:hover{
+    width: 250px;
+    color: red;
+   
+
+}
+#div2{
+     width: 200px;
+     height: 300px;
+     margin: auto;
+     border: 1px solid black;
+     color: red;
+     transition: transform 2s linear;
+}
+#div2:hover{
+    transition: rotateZ(3600deg);
+}

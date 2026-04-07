@@ -1,0 +1,42 @@
+:root{
+    --main-color:red;
+    --sub-color:rgb(0, 255, 21);
+
+    --text-color:rgb(17, 0, 255);
+    --width:200px;
+    --background-color: rgb(255, 94, 0);
+
+
+}
+
+
+h1{
+    color: var(--main-color);
+}
+h3{
+    color: var(--text-color);
+}
+p{
+    color: var(--sub-color);
+}
+th{
+    color: pink;
+}
+td{
+    color: green;
+}
+#button{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: rgb(255, 0, 179);
+    width: var(--width);
+    background-color: var(--background-color);
+    
+}
+#button1{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px 15px;
+    background-color: rgb(0, 255, 200);
+}
