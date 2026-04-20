@@ -14,9 +14,18 @@
 
 
 .position-relative{
-  height: 610px;
+  height: 500px;
   .carousel-inner{
     height: 610px;
+  margin-bottom: 100px;
+}
+
+}
+
+.ankush{
+  height: 500px;
+  .ankush1{
+    height: 640px;
   margin-bottom: 100px;
 }
 
@@ -59,4 +68,23 @@
 .row5{
   background-color:  #c2410c;
   height: 300px;
+}
+.foooter{
+  background-color: #3f3f46;
+
+}
+
+.register{
+  background-color: #3f3f46;
+
+}
+
+.orderfooter{
+  background-color: #3f3f46;
+
+}
+
+.feedfooter{
+  background-color: #3f3f46;
+
 }
