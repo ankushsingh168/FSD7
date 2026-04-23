@@ -88,3 +88,12 @@
   background-color: #3f3f46;
 
 }
+
+.card-box{
+  transition: all 0.2s ease;
+  border-radius: 10px;
+}
+.card-box:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px;
+}
