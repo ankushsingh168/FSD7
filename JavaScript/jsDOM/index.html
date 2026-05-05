@@ -18,24 +18,65 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container d-flex mt-5 gap-5 w-50">
-      <input
+
+      <div class="container w-50 mt-5 border border-4">
+        <div>
+           <span>Name:</span>
+          <input
         type="text"
         id="fullName"
-        placeholder="Enter your name"
-        class="form-control"
+        placeholder="Enter your name "
+        class="form-control mb-2"
       />
-      <button class="btn btn-primary" onclick="Submit()"> Submit </button>
+
+       <span>City:</span>
+      <input
+        type="text"
+        id="city"
+        placeholder="Enter your city "
+        class="form-control mb-2"
+      />
+
+       <span>Email:</span>
+        <input
+        type="email"
+        id="email"
+        placeholder="Enter your Email"
+        class="form-control mb-2"
+      />
+
+       <span>Password:</span>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        class="form-control mb-2"
+      />
+
+        </div>
+        <button class="btn btn-primary d-block mx-auto mt-4 mb-3" onclick="Submit()"> submit</button>
+      </div>
+   
+
+    <div class="border rounded shadow container p-4 divHide w-50" id="dataCard1">
+        <span>Name:</span>
+        <span id="mydata1"></span>
     </div>
-    <hr />
-    
-    <div class="border rounded shadow container p-4 divHide w-50" id="dataCard">
-        <span>Name:</span>
-        <span id="mydata"></span>
-        <br>
-        <span>Name:</span>
+
+    <div class="border rounded shadow container p-4 divHide w-50" id="dataCard2">
+        <span></span>
         <span id="mydata2"></span>
     </div>
+
+    <div class="border rounded shadow container p-4 divHide w-50" id="dataCard3">
+        <span>Contact:</span>
+        <span id="mydata3"></span>
+    </div>
+
+    
+
+
+    
 
 
     
