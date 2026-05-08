@@ -1,0 +1,27 @@
+#bulb1{
+    width: 100px;
+    height: 100px;
+
+    border-radius: 100%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+}
+
+#heading {
+  color: black;
+}
+
+#para {
+  color: gray;
+}

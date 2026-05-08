@@ -47,7 +47,7 @@ let FData = [
   },
 ];
 
-FData.forEach((item)=> {
+FData.forEach((item) => {
   console.log(item["name"]);
 });
 console.log(FData);
@@ -72,21 +72,36 @@ let ar = [22, 43, 6, 43, 5, , 3, 6, 8, , 4, 333, 6, 5, 33];
 ar.sort((a, b) => a - b);
 console.log(ar);
 
-console.log(ar.find((val) => val >20));
-console.log(ar.find((val) => val ===33));
+console.log(ar.find((val) => val > 20));
+console.log(ar.find((val) => val === 33));
 console.log(ar.findIndex((val) => val === 33));
 console.log(ar.findLastIndex((val) => val === 6));
 
-
 let ar2 = [22, 43, 6, 43, 5, , 3, 6, 8, , 4, 333, 6, 5, 33];
-console.log(ar2.filter((val) => val>20));
+console.log(ar2.filter((val) => val > 20));
 
-console.log(ar2.find((val) => val>20));
+console.log(ar2.find((val) => val > 20));
 
-console.log(ar2.slice(0,7));
+console.log(ar2.slice(0, 7));
 
-let ab="This is Web development"
+let ab = "This is Web development";
 console.log(ab);
 
-console.log(ab.split["_"]);
+console.log(ab.split(" "));
+console.log(ab.split("_"));
 
+let str = "this is String";
+
+console.log(str.charAt(5));
+
+console.log(str.toUpperCase());
+console.log(str.toLowerCase());
+
+let a = 3.14;
+console.log(a);
+console.log(typeof a);
+let b = a.toString ();
+console.log(b);
+
+let c =3.1478588555555885;
+console.log(c.toFixed(5));
