@@ -17,27 +17,34 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="w-25 bg-light rounded shadow border mx-auto mt-5">
-      <h1 class="text-center mb-3">Age Calculator</h1>
+    <header class="bg-primary text-light p-3 text-center">
+      <h1>To Do List</h1>
+    </header>
 
-      <form class="d-flex flex-column gap-3 align-items-center w-100 p-3">
-        <label for="DOB">Enter your Date of Birth</label>
-        <input type="date" name="DOB" id="DOB" class="form-control" />
-
-        <label for="CurrentDate">Choose Current Date</label>
+    <main>
+      <div class="container rounded border shadow my-2 d-flex gap-4 p-3">
         <input
-          type="date"
-          name="CurrentDate"
-          id="CurrentDate"
-          class="form-control"
+          type="text"
+          name="newTask"
+          id="newTask"
+          placeholder="Add A New Task"
+          class="form-control w-75"
         />
-        <button type="submit" class="btn btn-primary">Calculator Age</button>
-
-        <div class="fw-bold text-center">
-          Your Age is : <span id="myage">XX Years</span>
-        </div>
-      </form>
-    </div>
+        <button class="btn btn-primary w-25">Add New Task</button>
+      </div>
+      <div class="container rounded border shadow my-2 p-3">
+        <ol>
+          <li class="my-3">
+            <span>Task 1</span>
+            <button
+              class="btn btn-danger ms-4 d-flex gap-3 align-items-center justify-content-center"
+            >
+              <i class="bi bi-trash"></i>Delete
+            </button>
+          </li>
+        </ol>
+      </div>
+    </main>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
