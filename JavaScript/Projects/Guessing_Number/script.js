@@ -18,3 +18,9 @@ function checkGuess() {
     message.style.color = "green";
   }
 }
+
+
+
+function restartGame() {
+  location.reload();
+}
