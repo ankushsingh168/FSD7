@@ -25,9 +25,10 @@
 
     <main>
       <div class="container my-4 p-5 bg-light rounded border shadow">
-        <form id="registrationFrom">
+        <form id="registrationForm">
           <section class="bg-white p-3 rounded border mb-3">
             <div class="p-2 mt-2">
+              <h2>Personal Information:</h2>
               <label for="fullName" class="form-label fw-bold">Full Name</label>
               <input
                 type="text"
@@ -35,6 +36,7 @@
                 id="fullName"
                 class="form-control"
                 placeholder="Rahul Kumar"
+                required
               />
               <span class="text-danger small" id="fullNameError"></span>
             </div>
@@ -46,8 +48,10 @@
                 id="email"
                 class="form-control"
                 placeholder="rahulkumar@example.com"
+                required
               />
               <span class="text-danger small" id="emailError"></span>
+              <span class="text-danger small manualError" id="emailError"></span>
             </div>
             <div class="p-2 mt-2">
               <label for="phone" class="form-label fw-bold"
@@ -59,6 +63,7 @@
                 id="phone"
                 class="form-control"
                 placeholder="9876543210"
+                required
               />
               <span class="text-danger small" id="phoneError"></span>
             </div>
@@ -70,6 +75,7 @@
                 id="dob"
                 class="form-control"
                 placeholder="Rahul Kumar"
+                required
               />
               <span class="text-danger small" id="dobError"></span>
             </div>
@@ -82,6 +88,7 @@
                   id="male"
                   value="male"
                   class="form-switch"
+                  required
                 />
                 <span>Male</span>
               </div>
@@ -92,6 +99,7 @@
                   id="female"
                   value="female"
                   class="form-switch"
+                  required
                 />
                 <span>Female</span>
               </div>
@@ -102,6 +110,7 @@
                   id="others"
                   value="others"
                   class="form-switch"
+                  required
                 />
                 <span>Others</span>
               </div>
@@ -111,6 +120,7 @@
 
           <section class="bg-white p-3 rounded border mb-3">
             <div class="p-2 mt-2">
+              <h2>Academic Details:</h2>
               <label for="qualification" class="form-label fw-bold"
                 >Last Completed Qualification</label
               >
@@ -145,6 +155,7 @@
 
           <section class="bg-white p-3 rounded border mb-3">
             <div class="p-2 mt-2">
+              <h2>Course Information:</h2>
               <label for="course" class="form-label fw-bold"
                 >Preferred Course</label
               >
@@ -208,7 +219,8 @@
 
           <section class="bg-white p-3 rounded border mb-3">
             <div class="p-2 mt-2">
-              <label for="address" class="form-label fw-bold">Address</label>
+              <h2>Address:</h2>
+              <label for="address" class="form-label fw-bold">Residential Address:</label>
               <textarea
                 name="address"
                 id="address"
