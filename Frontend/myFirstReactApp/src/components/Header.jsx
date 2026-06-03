@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaWifi } from "react-icons/fa";
 
 function Header() {
   return (
@@ -11,7 +12,7 @@ function Header() {
           <Link to={"/product"}>Product</Link>
           <Link to={"/contact-us"}>ContactUs</Link>
           <Link to={"/Login"}>Login</Link>
-          <Link to={"/register"}>Register</Link>
+          <Link to={"/register"}><FaWifi /> Register</Link>
         </div>
         <div className="d-flex gap-3">
            <Link to={"/login"}>
