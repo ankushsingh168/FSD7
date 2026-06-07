@@ -49,7 +49,7 @@ function Login() {
         <hr />
         
         <p>
-          Don't have an account? <Link to="/register">Register</Link>
+          Don't have an account? <Link to="/register">Register karo </Link>
         </p>
       </div>
     </div>
