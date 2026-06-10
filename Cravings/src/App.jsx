@@ -1,20 +1,34 @@
+import background from "./images/background.jpg";
 const App = () => {
   return (
     <>
-      <div className="bg-green-200 text-amber-800 p-3.25">
-        <div className="w-5xl mx-auto border p-20 bg-white/70 rounded-2xl flex flex-col justify-center items-center ">
-          <p className="text-green-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-            quaerat perferendis accusantium distinctio odio aut enim magni nemo
-            ipsa, harum aspernatur possimus? Unde ipsum, at maiores cumque
-            soluta quia harum?
-          </p>
-           <button className="bg-blue-500 px-5 py-2 mt-3 mx-5 rounded text-white hover:bg-blue-700 active:bg-amber-500">
-            submit</button>
+      <div className="bg-amber-600 text-amber-800 p-3.25 flex justify-between">
+        <div className="flex">
+          <div>
+            <button className="bg-amber-700 px-5 py-2 mt-2 mx-2 rounded text-white hover:bg-amber-200 active:bg-amber-500">
+              Login
+            </button>
+          </div>
+          <div>
+            <button className="bg-amber-700 px-5 py-2 mt-2 mx-2 rounded text-white hover:bg-amber-200 active:bg-amber-500">
+              Register
+            </button>
+          </div>
         </div>
       </div>
-
-     
+      <div>
+        <div className="h-[85vh]">
+          <img
+            src={background}
+            alt="background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <h1>Your Favorite Food,
+Delivered Fast</h1>
+        </div>
+      </div>
     </>
   );
 };
