@@ -6,7 +6,7 @@ const Header = () => {
       <FaStore size={60} />
       <div className="flex gap-1.5">
         <h5>Home</h5>
-        <h5>Home</h5>
+        <h5>About</h5>
         <h5>Home</h5>
         <h5>Home</h5>
         <h5>Home</h5>
