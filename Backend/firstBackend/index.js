@@ -15,7 +15,7 @@ app.use("/public", PublicRouter);
 
 // default API
 app.get("/", (req, res) => {
-  console.log("Server Started");
+  console.log("Server Started now");
   res.json({ message: "welcome to my first backend project" });
 });
 
