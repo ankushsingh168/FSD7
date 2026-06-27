@@ -1,45 +1,46 @@
 import User from "../models/user.model.js";
+import bcrypt from "bcrypt";
+
+
+
 
 export const RegisterUser = async (req, res, next) => {
   try {
     const { fullName, email, password, phone, gender, dob } = req.body;
 
     if (!fullName || !email || !password || !phone || !gender || !dob) {
-      const error = new Error("All fields are required");
+      const error = new Error("All fields Required");
       error.statusCode = 400;
       return next(error);
     }
 
     const existingUser = await User.findOne({ email });
-
     if (existingUser) {
-      return res.status(409).json({
-        message: "Email already registered",
-      });
+      const error = new Error("Email Already Registered");
+      error.statusCode = 409;
+      return next(error);
     }
 
-    const photoUrl = `https://placehold.co/600x400?text=${fullName
-      .charAt(0)
-      .toUpperCase()}`;
+    const photoUrl = `https://placehold.co/600x400?text=${fullName.charAt(0).toUpperCase()}`;
 
     const photo = {
       url: photoUrl,
       publicId: null,
     };
 
-    await User.create({
+    const SALT = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, SALT);
+   const newUser = await User.create({
       fullName,
       email,
-      password,
+      password: hashedPassword,
       phone,
       gender,
       dob,
       photo,
     });
 
-    return res.status(201).json({
-      message: "User created successfully",
-    });
+    res.status(201).json({ message: "User Created Successfully" });
   } catch (error) {
     console.log(error.message);
     next(error);
@@ -51,26 +52,26 @@ export const LoginUser = async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      const error = new Error("All fields are required");
+      const error = new Error("All fields Required");
       error.statusCode = 400;
       return next(error);
     }
 
     const existingUser = await User.findOne({ email });
-
     if (!existingUser) {
-      const error = new Error("User not found");
+      const error = new Error("Email not registered");
       error.statusCode = 404;
       return next(error);
     }
 
-    if (password !== existingUser.password) {
-      const error = new Error("Incorrect password");
+    const isVerified = await bcrypt.compare(password, existingUser.password)
+    if (!isVerified) {
+      const error = new Error("Incorrect Password");
       error.statusCode = 401;
       return next(error);
     }
 
-    return res.status(200).json({
+    res.status(200).json({
       message: "Welcome Back",
       data: existingUser,
     });
@@ -80,8 +81,6 @@ export const LoginUser = async (req, res, next) => {
   }
 };
 
-export const LogoutUser = (req, res) => {
-  return res.status(200).json({
-    message: "Logout successful",
-  });
+export const LogoutUser = (req, res, next) => {
+  res.json({ message: "Logout Successfully from controller" });
 };
