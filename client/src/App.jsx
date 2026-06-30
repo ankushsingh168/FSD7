@@ -5,10 +5,12 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ContactUs from "./pages/ContactUs";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
+    <Toaster />
       <Navbar />
 
       <Routes>
@@ -16,6 +18,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact-us" element={<ContactUs />} />
+
+        <Route par />
         
       </Routes>
 

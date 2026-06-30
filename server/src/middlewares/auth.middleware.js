@@ -1,8 +1,12 @@
-export const sampleMiddleWare = async (req, res, next) => {
-  console.log("I am sample middleware 1");
-  next();
-};
-export const sampleMiddleWare2 = async (req, res, next) => {
-  console.log("I am sample middleware 2");
-  next();
+export const AuthProtect = async (req, res, next) => {
+  try {
+    //Controller Logic
+
+    next();
+  } catch (error) {
+    console.log(error.message);
+    const error = new Error("Unknown Error At Middleware");
+    error.statusCode = 500;
+    next(error);
+  }
 };
