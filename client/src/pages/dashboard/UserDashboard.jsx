@@ -1,12 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
-const userDashboard = () => {
-    const [userData,setUserData]= useState("")
+const UserDashboard = () => {
+  const [userData, setUserData] = useState("");
 
-    useEffect()
+  useEffect(() => {
+    setUserData(JSON.parse(sessionStorage.getItem("UserData")));
+  }, []);
+
   return (
-    <div>userDashboard</div>
-  )
-}
+    <>
+      <div>Welcome Back!! {userData.fullName}</div>
+      <div>Welcome Back!! {userData.email}</div>
+      <div>Welcome Back!! {userData.phone}</div>
+      <div className="w-24 h-24 rounded-full overflow-hidden">
+        <img
+          src={userData.photo}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </div>
+    </>
+  );
+};
 
-export default UserDashboard
+export default UserDashboard;

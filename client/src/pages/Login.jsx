@@ -3,8 +3,10 @@ import deliveryboy from "../assets/deliveryboy.png";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../config/api.config.js";
 import toast from "react-hot-toast";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const Login = () => {
+  const { setUser, setIsLogin } = useAuth();
   const navigate = useNavigate();
 
   const [loginData, setLoginData] = useState({
@@ -32,18 +34,29 @@ const Login = () => {
     try {
       const res = await api.post("/auth/login", payload);
 
+      // Test Toast
+
+      // Response Check
+      console.log(res.data);
+      console.log(res.data.data);
+      console.log(res.data.data.photo);
+
+      // Save User Data
+      sessionStorage.setItem("UserData", JSON.stringify(res.data.data));
+      setUser(res.data.data);
+      setIsLogin(true);
+      navigate("/user/dashboard");
+
+      // Success Toast
       toast.success(res.data.message || "Login Successful");
 
-      console.log(res.data.data.photo);
-      sessionStorage.setItem("UserData", JSON.stringify(res.data.data))
-
-      // Example:
+      // Redirect
       // navigate("/");
     } catch (error) {
       toast.error(
         error.response?.data?.message ||
           error.message ||
-          "Something went wrong"
+          "Something went wrong",
       );
     }
   };
@@ -102,9 +115,7 @@ const Login = () => {
             Login
           </button>
 
-          <p className="text-center">
-            Don't have an account?
-          </p>
+          <p className="text-center">Don't have an account?</p>
 
           <Link
             to="/register"
