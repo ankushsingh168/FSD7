@@ -1,7 +1,0 @@
-import express from "express";
-import { contactUs } from "../controllers/public.controller.js";
-
-const router = express.Router();
-router.post("/contact-Us",contactUs)
-
-export default router;

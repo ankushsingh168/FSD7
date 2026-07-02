@@ -76,7 +76,7 @@ const Login = () => {
             </div>
 
             {/* Password */}
-            <div className="col-span-2 flex flex-col gap-4">
+            <div className="col-span-2 flex flex-col gap-2">
               <label htmlFor="password">Password</label>
               <input
                 type="password"

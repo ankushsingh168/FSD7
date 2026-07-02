@@ -5,15 +5,9 @@ const UserDashboard = () => {
   const { user } = useAuth();
   return (
     <>
-      <div>Welcome Back!! {user.fullName}</div>
-      <div>Welcome Back!! {user.email}</div>
-      <div>Welcome Back!! {user.phone}</div>
-      <div className="w-24 h-24 rounded-full overflow-hidden">
-        <img
-          src={user.photo}
-          alt=""
-          className="w-full h-full object-cover"
-        />
+      <div className="flex">
+        <div className="w-1/6 border border-red-500 h-full">Sidebar</div>
+        <div className="w-5/6 border border-green-500 h-full">Content</div>
       </div>
     </>
   );
