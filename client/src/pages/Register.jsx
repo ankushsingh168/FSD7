@@ -25,32 +25,48 @@ const Register = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (registerData.password !== registerData.confirmPassword) {
-      setValidateError("Passwords do not match");
-      return;
-    }
+  if (registerData.password !== registerData.confirmPassword) {
+    setValidateError("Passwords do not match");
+    return;
+  }
 
-    setValidateError("");
-    console.log("Register data submitted:", registerData);
+  setValidateError("");
 
-    const payload = {
-      fullName: registerData.fullName,
-      email: registerData.email.toLowerCase(),
-      gender: registerData.gender,
-      dob: registerData.dob,
-      phone: registerData.phone,
-      password: registerData.password,
-    };
-
-    try {
-      const res = await api.post("/auth/register", payload);
-      alert(res.data.message);
-    } catch (error) {
-      console.log(res?.data?.message || error.message);
-    }
+  const payload = {
+    fullName: registerData.fullName,
+    email: registerData.email.toLowerCase(),
+    gender: registerData.gender,
+    dob: registerData.dob,
+    phone: registerData.phone,
+    password: registerData.password,
   };
+
+  try {
+    const res = await api.post("/auth/register", payload);
+
+    alert(res.data.message);
+
+    setRegisterData({
+      fullName: "",
+      email: "",
+      gender: "",
+      dob: "",
+      phone: "",
+      password: "",
+      confirmPassword: "",
+    });
+
+    navigate("/login");
+  } catch (error) {
+    console.log(error.response?.data?.message || error.message);
+
+    alert(
+      error.response?.data?.message || "Registration Failed"
+    );
+  }
+};
 
   const inputClass =
     "border p-2 rounded focus:outline-none focus:ring-2 focus:ring-(--accent)";

@@ -1,30 +1,33 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import deliveryboy from "../assets/deliveryboy.png";
-import { Link, useNavigate } from "react-router-dom";
-import api from "../config/api.config.js";
+import api from "../config/api.config";
 import toast from "react-hot-toast";
-import { useAuth } from "../context/AuthContext.jsx";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-  const { setUser, setIsLogin } = useAuth();
+  const { setUser, setIsLogin, isLogin } = useAuth();
   const navigate = useNavigate();
-
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const [validateError, setValidateError] = useState();
 
-    setLoginData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+
+    setLoginData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Handle login logic here, e.g., send loginData to the server
+    //Validate loginData
+
+    console.log("Login data submitted:", loginData);
 
     const payload = {
       email: loginData.email.toLowerCase(),
@@ -33,99 +36,93 @@ const Login = () => {
 
     try {
       const res = await api.post("/auth/login", payload);
-
-      // Test Toast
-
-      // Response Check
-      console.log(res.data);
-      console.log(res.data.data);
-      console.log(res.data.data.photo);
-
-      // Save User Data
+      toast.success(res.data.message);
       sessionStorage.setItem("UserData", JSON.stringify(res.data.data));
       setUser(res.data.data);
-      setIsLogin(true);
+      // setIsLogin(true);
       navigate("/user/dashboard");
-
-      // Success Toast
-      toast.success(res.data.message || "Login Successful");
-
-      // Redirect
-      // navigate("/");
     } catch (error) {
       toast.error(
-        error.response?.data?.message ||
-          error.message ||
-          "Something went wrong",
+        error.response.status + " | " + error.response?.data?.message ||
+          error.message,
       );
     }
   };
 
+  const inputClass =
+    "border p-2 rounded focus:outline-none focus:ring-2 focus:ring-(--accent)";
+
   return (
-    <div className="h-screen bg-linear-to-r from-(--secondary) to-(--primary) flex items-center justify-center gap-10">
-      <div>
-        <img src={deliveryboy} alt="Delivery Boy" />
-      </div>
+    <>
+      <div className="min-h-[90vh] bg-linear-to-r from-(--secondary) to-(--primary) grid grid-cols-2 p-10">
+        <div className="hidden md:block">
+          <img src={deliveryboy} alt="" className="rotate-y-180" />
+        </div>
+        <div className="w-2xl bg-(--background) rounded shadow p-10 flex flex-col justify-center">
+          <div className="text-xl font-semibold mb-4">Welcome Back!</div>
 
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-2 bg-amber-50 p-4 rounded-2xl w-80">
-          <h1 className="opacity-50 text-center text-xl font-semibold">
-            Login to your account
-          </h1>
-
-          <label htmlFor="email">Email</label>
-
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={loginData.email}
-            onChange={handleChange}
-            placeholder="Enter your email"
-            className="w-full rounded-md border border-gray-300 px-3 py-2"
-          />
-
-          <label htmlFor="password">Password</label>
-
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={loginData.password}
-            onChange={handleChange}
-            placeholder="Enter your password"
-            className="w-full rounded-md border border-gray-300 px-3 py-2"
-          />
-
-          <div className="flex justify-between text-sm">
-            <div>
-              <input type="checkbox" />
-              <span className="ml-1">Remember me</span>
+          <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+            {/* Email */}
+            <div className="col-span-2 flex flex-col gap-2">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={loginData.email}
+                onChange={handleChange}
+                className={inputClass}
+              />
             </div>
 
-            <span className="text-amber-800 cursor-pointer">
-              Forgot password?
-            </span>
+            {/* Password */}
+            <div className="col-span-2 flex flex-col gap-2">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={loginData.password}
+                onChange={handleChange}
+                className={inputClass}
+              />
+            </div>
+
+            {validateError && (
+              <p className="text-red-500 text-sm col-span-2">{validateError}</p>
+            )}
+
+            <button
+              type="submit"
+              className="col-span-2 mt-2 bg-(--primary) text-white py-2 px-4 rounded hover:bg-(--accent)"
+            >
+              Login
+            </button>
+          </form>
+
+          <div className="mt-6 text-center space-y-2">
+            <p className="text-sm">
+              Don't have an account?{" "}
+              <button
+                onClick={() => navigate("/register")}
+                className="text-(--primary) hover:underline font-semibold"
+              >
+                Register here
+              </button>
+            </p>
+            <p className="text-sm">
+              Having Trouble?{" "}
+              <button
+                onClick={() => navigate("/contact")}
+                className="text-(--primary) hover:underline font-semibold"
+              >
+                Contact Us
+              </button>
+            </p>
           </div>
-
-          <button
-            type="submit"
-            className="bg-blue-700 text-white py-2 rounded-md hover:bg-blue-800"
-          >
-            Login
-          </button>
-
-          <p className="text-center">Don't have an account?</p>
-
-          <Link
-            to="/register"
-            className="text-center text-amber-800 font-medium"
-          >
-            Create an account
-          </Link>
         </div>
-      </form>
-    </div>
+      </div>
+    </>
   );
 };
 

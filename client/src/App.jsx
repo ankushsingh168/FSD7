@@ -1,16 +1,19 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Footer from "./components/Footer";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ContactUs from "./pages/ContactUs";
-import { Toaster } from "react-hot-toast";
+import UserDashboard from "./pages/dashboard/UserDashboard";
 
-function App() {
+const App = () => {
   return (
     <>
-    <Toaster />
+      <Toaster position="top-right" />
+
       <Navbar />
 
       <Routes>
@@ -19,13 +22,11 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/contact-us" element={<ContactUs />} />
 
-        <Route par />
-        
+        {/* Dashboard */}
+        <Route path="/user/dashboard" element={<UserDashboard />} />
       </Routes>
-
-      <Footer />
     </>
   );
-}
+};
 
 export default App;
