@@ -3,8 +3,6 @@ import User from "../models/user.model.js";
 
 export const AuthProtect = async (req, res, next) => {
   try {
-    console.log(req.cookies);
-console.log(req.cookies.Oreo);
     const token = req.cookies.Oreo;
     if (!token) {
       const error = new Error("Session Expired");
