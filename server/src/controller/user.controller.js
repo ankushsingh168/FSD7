@@ -50,6 +50,6 @@ export const EditUserProfile = async (req, res, next) => {
       .json({ message: "User Updated Sucessfully", data: existingUser });
   } catch (error) {
     console.log(error.message);
-    next();
+    next(error);
   }
 };

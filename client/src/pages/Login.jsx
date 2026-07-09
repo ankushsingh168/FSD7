@@ -47,6 +47,7 @@ const Login = () => {
 
     setLoading(true);
     console.log("Login submitted:", formData);
+    console.log("API baseURL:", api.defaults.baseURL);
 
     try {
       const res = await api.post("/auth/login", {
@@ -59,19 +60,21 @@ const Login = () => {
       setIsLogin(true);
       //console.log(res.data.data.userType);
       setRole(res.data.data.userType);
-      if (res.data.data.userType === "restaurant") {
+      
+      res.data.data.userType === "restaurant" &&
         navigate("/restaurant-dashboard");
-      } else if (res.data.data.userType === "rider") {
-        navigate("/rider-dashboard");
-      } else if (res.data.data.userType === "admin") {
-        navigate("/admin-dashboard");
-      } else {
-        navigate("/customer-dashboard");
-      }
+
+      res.data.data.userType === "rider" && navigate("/rider-dashboard");
+
+      res.data.data.userType === "admin" && navigate("/admin-dashboard");
+
+      res.data.data.userType === "customer" && navigate("/customer-dashboard");
     } catch (error) {
+      console.error("Login error:", error.response?.data || error.message);
       toast.error(
         error.response?.data?.message ||
-          "Unknown error occurred during registration. Please try again.",
+          error.message ||
+          "Unknown error occurred during login. Please try again.",
       );
     } finally {
       setLoading(false);

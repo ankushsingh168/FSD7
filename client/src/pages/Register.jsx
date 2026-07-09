@@ -78,8 +78,10 @@ const Register = () => {
       toast.success(res.data.message);
       navigate("/login");
     } catch (error) {
+      console.error("Registration error:", error.response?.data || error.message);
       toast.error(
         error.response?.data?.message ||
+          error.message ||
           "Unknown error occurred during registration. Please try again.",
       );
     } finally {
